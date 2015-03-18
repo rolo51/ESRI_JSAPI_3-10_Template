@@ -1,0 +1,241 @@
+﻿/* DEFAULTS
+----------------------------------------------------------*/
+html, body {
+	height: 100%; 
+	width: 100%;
+    padding: 0px;
+    margin: 0px;
+	background-color: #f2f0ea;
+    font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
+    color: #614100;
+}
+
+a:link, a:visited, a:active
+{
+    color: #1155cc;
+}
+
+a:hover
+{
+    color: #1155cc;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.hlink {
+	color: #1155cc;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* SPECIFIC TAG IDs
+----------------------------------------------------------*/
+header
+{
+    background: #cdd294; /* #cdd294 (lighter, same as dragpanel header backcolor).  #615C58 (too dark).  #e4e7c6 */
+    height: 69px;
+    width: 100%;
+	text-align: center;
+    z-index: 1;
+}
+
+section
+{
+    width: 100%;
+    height: 100%;
+    background-color: #f2f0ea;
+    z-index: 0;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+#TCLogoHeader
+{
+    position: absolute;
+    left: 0px;
+}
+
+#ITLogoHeader
+{
+    position: absolute;
+    right: 0px;
+}
+
+#divDragPanel {
+	z-index:999;
+	width:310px;
+	position:absolute;
+	top:75px;
+	right:200px;
+}
+
+#divContent {
+	width:300px;
+	font-size:12px;
+}
+
+#divLegend {
+    position:absolute;
+    top:150px;
+    left:100px;
+    z-index:2;
+    width:300px;
+}
+
+#legendBody {
+    max-height:350px;
+    overflow:auto;
+}
+
+#divMapSimpleMenu {
+	position: absolute;
+	width: 180px;
+	top: 75px;
+	left: 75px;
+	z-index: 2;
+}
+
+#divPrintMe {
+    position: absolute;
+    top: 150px;
+    left: 400px;
+    z-index: 2;
+}
+
+#tc {
+	width:300px;
+}
+
+#cpLayers {
+    max-height:350px;
+    overflow:auto;
+}
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+.alternating-item {
+    background-color: #e5e7c7;
+}
+
+.collapsible
+{
+    width: 20%;
+    text-align: right;
+}
+
+.draggable
+{
+    cursor: move;
+    width: 80%;
+    font-weight:bold;
+}
+
+.center {
+	text-align: center;
+}
+
+.centerOnRow
+{
+    margin: 0 auto; /* This centers a table in the middle of the row */
+}
+
+.dragPanel {
+	background-color: #cdd294;
+	font-size: 10pt;
+	border: 1px solid #808080;
+}
+
+.dragPanelContent {
+	background-color: #f2f0ea;
+}
+
+.hide {
+    display:none;
+}
+
+.imgSimpleMenu {
+	width: 55px;
+	height: 55px;
+	cursor: pointer;
+}
+
+.imageButton {
+    cursor:pointer;
+}
+
+.left {
+	text-align:left;
+}
+
+.right {
+	text-align:right;
+}
+
+.show {
+    display:normal;
+}
+
+table {
+	width:100%;
+}
+
+.waiting {
+    background-image: url('../images/loading_small.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    /* background-size causes the image to be 100% wide and 100% tall. 
+        Just consider what this will look like when overlaying on a button. 
+        It may be a Travisty. */
+}
+
+.width100
+{
+    width: 100%;
+}
+
+/* ESRI SPECIFIC
+----------------------------------------------------------*/
+.esriPopup .titlePane {
+    background-color: #cdd294;
+    color: #614100;
+    font-weight:bold;
+}
+
+.esriPopup .titlePane .title {
+    /*background-color: #cdd294;*/
+    width: 90%;
+}
+
+.esriPopup .titleButton.close {
+    /*background-color: #614100;
+    color: #614100;*/
+    background-color:rgb(125,50,0);
+    border-radius:10px;
+    background-position-x:3px; /*-31px*/
+    width:17px;
+    height:17px;
+}
+
+.esriPopup .titleButton.maximize {
+    display: none;
+}
+
+.esriPopup .contentPane {
+    font-weight:bold;
+}
+
+.esriSimpleSliderHomeButton{ 
+    background-image: url('../images/home.png'); 
+    background-repeat:no-repeat; 
+    background-position:center;
+    border-bottom: 1px solid #57585a;
+}
+
+.dijitTab .tabLabel {
+    color: #614100;
+}

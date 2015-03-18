@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no" />
+        <title>Your Title Goes Here</title>
+        <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.10/js/dojo/dijit/themes/claro/claro.css" />
+        <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.10/js/esri/css/esri.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <script type="text/javascript">var dojoConfig = { parseOnLoad:false };</script>
+        <script type="text/javascript" src="//js.arcgis.com/3.10compact/"></script>
+        <script type="text/javascript" src="js/global.js"></script>
+        <script type="text/javascript" src="js/initialize.js"></script>
+    </head>
+    <body class="claro">
+        <header>
+            <img id="TCLogoHeader" src="images/TBLeft.png" alt="" />
+            <img id="ITLogoHeader" src="images/TBRight.png" alt="" />
+        </header>
+
+        <div id="map">
+        </div>
+
+        <article id="divMapSimpleMenu">
+            <img id="imgImagery" src="images/SatelliteMap.png" class="imgSimpleMenu" alt="View Imagery" title="View Imagery" />
+            <img id="imgIdentify" src="images/InfoButton.png" class="imgSimpleMenu" alt="Right Click On Map For Identify" title="Right Click On Map For Identify" />
+            <img id="imgPrint" src="images/PrintMap.png" class="imgSimpleMenu" alt="Print" title="Print" />
+        </article>
+
+        <article id="divDragPanel" class="dragPanel">
+            <table class="border width100">
+                <tr>
+                    <td id="dragPanelID" class="draggable">
+                        Floating Drag Panel
+                    </td>
+                    <td class="collapsible">
+                        <img id="imgMin" class="imageButton" src="images/MinSmall.png" alt="Minimize" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <section id="divContent" class="dragPanelContent">
+                            <div id="tc" data-dojo-type="dijit.layout.TabContainer" tabposition="top" dolayout="false">
+                                <div id="cpMeasure" data-dojo-type="dijit.layout.ContentPane" title="Measure">
+                                    <table id="tblMeasure" class="width100">
+                                        <tr>
+                                            <td>
+                                                <div id="divMeasure"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="right">
+                                                <button id="btnResetMeasure" type="button">Reset</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div id="cpLayers" data-dojo-type="dijit.layout.ContentPane" title="Layers">
+                                    <table id="tblLayers" class="width100">
+                                        <tr>
+                                            <td class="right">
+                                                <a id="aLegend" href="#">Legend</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div id="checkboxes">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </td>
+                </tr>
+            </table>
+        </article>
+
+        <article id="divPrintMe" class="dragPanel hide">
+            <table class="width100">
+                <tr>
+                    <td id="printDrag" class="draggable">
+                        Print Panel:
+                    </td>
+                    <td class="collapsible">
+                        <img id="imgPrintMeClose" src="images/CloseSmall.png" class="imageButton" alt="Click to close" />
+                    </td>
+                </tr>
+            </table>
+
+            <table class="dragPanelContent width100">
+                <tr>
+                    <td>
+                        Map Title:
+                    </td>
+                    <td>
+                        <input id="txtMapTitle" type="text" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Map Layout:
+                    </td>
+                    <td>
+                        <select id="ddlMapSize" onchange="">
+                            <option value="-1" selected="selected">--Choose--</option>
+                            <option value="A3 Landscape">A3 Landscape</option>
+                            <option value="A3 Portrait">A3 Portrait</option>
+                            <option value="A4 Landscape">A4 Landscape</option>
+                            <option value="A4 Portrait">A4 Portrait</option>
+                            <option value="Letter ANSI A Landscape">Letter ANSI A Landscape</option>
+                            <option value="Letter ANSI A Portrait">Letter ANSI A Portrait</option>
+                            <option value="MAP_ONLY">Map Only</option>
+                            <option value="Tabloid ANSI B Landscape">Tabloid ANSI B Landscape</option>
+                            <option value="Tabloid ANSI B Portrait">Tabloid ANSI B Portrait</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Map Format:
+                    </td>
+                    <td>
+                        <select id="ddlMapFormat" onchange="">
+                            <option value="gif">gif</option>
+                            <option value="jpg" selected="selected">jpg</option>
+                            <option value="pdf">pdf</option>
+                            <option value="png8">png8</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="right" colspan="2">
+                        <img id="imgPrintLoading" class="hide" src="./images/loading_small.gif" alt="" />
+                        <button type="button" id="btnPrint">Print</button>
+                    </td>
+                </tr>
+            </table>
+        </article>
+
+        <article id="divLegend" class="dragPanel hide">
+            <table class="width100">
+                <tr>
+                    <td id="legendDrag" class="draggable">
+                        Legend
+                    </td>
+                    <td class="collapsible">
+                        <img id="imgLegendClose" src="images/CloseSmall.png" class="imageButton" alt="Click to close" />
+                    </td>
+                </tr>
+            </table>
+            <section id="legendBody" class="dragPanelContent">
+                No layers have been checked
+            </section>
+        </article>
+
+        <script type="text/javascript" src="js/Print.js"></script>
+        <script type="text/javascript" src="js/LayerCheckboxes.js"></script>
+        <script type="text/javascript" src="js/Legend.js"></script>
+        <script type="text/javascript" src="js/Measurement.js"></script>
+    </body>
+</html>

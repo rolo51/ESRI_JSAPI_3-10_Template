@@ -1,0 +1,46 @@
+﻿<Settings>
+    <Site>
+        <Name><![CDATA[ARCGIS_World_Street_Map]]></Name>
+        <Setting><![CDATA[https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer]]></Setting>
+    </Site>
+    <Site>
+        <Name><![CDATA[ARCGIS_World_Imagery]]></Name>
+        <Setting><![CDATA[https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer]]></Setting>
+    </Site>
+    <Site>
+        <Name><![CDATA[ARCGIS_World_Boundaries_and_Places]]></Name>
+        <Setting><![CDATA[https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer]]></Setting>
+    </Site>
+    <Site>
+        <Name><![CDATA[GC_Parcel_Locator]]></Name>
+        <Setting><![CDATA[https://mapit.tarrantcounty.com/arcgis/rest/services/Geocode/GC_Parcel/GeocodeServer]]></Setting>
+    </Site>
+    <Site>
+        <Name><![CDATA[ArcGIS_TA_Address_NA_10]]></Name>
+        <Setting><![CDATA[https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer]]></Setting>
+    </Site>
+    <Site>
+        <Name><![CDATA[Bing_Maps]]></Name>
+        <Setting><![CDATA[https://www.bing.com/maps]]></Setting>
+    </Site>
+    <Site>
+        <Name><![CDATA[Google_Maps]]></Name>
+        <Setting><![CDATA[https://maps.google.com/maps]]></Setting>
+    </Site>
+    <Site>
+        <Name><![CDATA[TAD_Account_URL]]></Name>
+        <Setting><![CDATA[https://www.tad.org/datasearch/re.cfm]]></Setting>
+    </Site>
+    <Site>
+        <Name><![CDATA[printtaskurl]]></Name>
+        <Setting><![CDATA[https://mapit.tarrantcounty.com/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export%20Web%20Map%20Task]]></Setting>
+    </Site>
+    <Site>
+        <Name><![CDATA[MapDisclaimerStart]]></Name>
+        <Setting><![CDATA[Provided by Tarrant County Public Health. This map is for general refererence purposes. Tarrant County does not guarantee the correctness or accuracy of any feature on this map.]]></Setting>
+    </Site>
+    <Site>
+        <Name><![CDATA[MapDisclaimerEnd]]></Name>
+        <Setting><![CDATA[Information on this map only shows an approximate relative location and may be changed at any time. Tarrant County Assumes no responsibility in connection therewith.]]></Setting>
+    </Site>
+</Settings>
