@@ -116,6 +116,7 @@
     on(dojo.byId("aLegend"), "click", function () { ToggleVisibility("divLegend"); });
     on(dojo.byId("btnPrint"), "click", PrintMe);
     on(dojo.byId("btnResetMeasure"), "click", ResetMeasurement);
+    on(dojo.byId("btnURL"), "click", ParseURL);
     
     loadCheckboxes();
     printParams = new PrintParameters();
@@ -238,4 +239,23 @@ function getMapPointFromMenuPosition(box) {
     var screenPoint = new esri.geometry.Point(x - map.position.x, y - map.position.y);
 
     return map.toMap(screenPoint);
+}
+
+function ParseURL(e) {
+	var rest = dojo.byId("url");
+	var url = "./WebHandlers/proxy.ashx?" + rest.value + "?f=pjson";
+	var getService = dojo.xhrGet({
+		url: url,
+		handleAs: "json"
+	}).then(function (result) {
+		var folders = result.folders;
+
+		dojo.forEach(folders, function (folder, i) {
+			var cbx = "<input id='" + i + "' type='checkbox' />&nbsp;";
+			dojo.byId("urlResults").innerHTML += cbx + folder.toString() + "<br />";
+		});
+		
+	}, function (err) {
+		dojo.byId("urlResults").innerHTML = err;
+	});
 }
