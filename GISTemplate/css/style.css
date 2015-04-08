@@ -74,6 +74,7 @@ section
 
 #divContent {
 	width:300px;
+	max-width:300px;
 	font-size:12px;
 }
 
@@ -141,6 +142,10 @@ section
 .centerOnRow
 {
     margin: 0 auto; /* This centers a table in the middle of the row */
+}
+
+.dijitContentPane {
+	word-wrap:break-word;
 }
 
 .dragPanel {

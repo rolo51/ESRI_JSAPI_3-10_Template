@@ -251,10 +251,59 @@ function ParseURL(e) {
 		var folders = result.folders;
 
 		dojo.forEach(folders, function (folder, i) {
-			var cbx = "<input id='" + i + "' type='checkbox' />&nbsp;";
-			dojo.byId("urlResults").innerHTML += cbx + folder.toString() + "<br />";
+			//var cbx = "<input id='" + i + "' type='checkbox' />&nbsp;";
+			//dojo.byId("urlResults").innerHTML += cbx + folder.toString() + "<br />";
+			var label = dojo.create("label", {
+				innerHTML: folder.toString()
+			});
+			var checkbox = dojo.create("input", {
+				type: "checkbox",
+				value: folder.toString()
+			});
+			dojo.place(checkbox, "urlResults");
+			dojo.place(label, "urlResults");
+			dojo.place("<br />", "urlResults");
+			dojo.connect(checkbox, "onchange", function () {
+				if (this.checked) {
+					ParseService(this.value);
+				}
+				else {
+					dojo.destroy(this.value);
+				}
+			});
 		});
 		
+	}, function (err) {
+		dojo.byId("urlResults").innerHTML = err;
+	});
+}
+
+function ParseService(serviceURL) {
+	var rest = dojo.byId("url");
+	var url = "./WebHandlers/proxy.ashx?" + rest.value + "/" + serviceURL + "?f=pjson";
+	var getService = dojo.xhrGet({
+		url: url,
+		handleAs: "json"
+	}).then(function (result) {
+		var services = result.services;
+		var newdiv = dojo.create("div", {
+			id: serviceURL,
+			innerHTML: ""
+		});
+
+		dojo.forEach(services, function (service, i) {
+			var n = service.name;
+			var t = service.type;
+
+			if (t === "MapServer") {
+				var label = dojo.create("p", {
+					innerHTML: rest.value + "/" + service.name
+				});
+				dojo.place(label, newdiv);
+			}
+		});
+
+		dojo.place(newdiv, "urlResults");
 	}, function (err) {
 		dojo.byId("urlResults").innerHTML = err;
 	});
